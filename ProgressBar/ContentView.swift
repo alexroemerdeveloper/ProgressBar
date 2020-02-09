@@ -9,9 +9,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var percent: CGFloat = 0
+    
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            ProgressBarView(percent: self.$percent)
+        }
+        .padding()
+        .onTapGesture {
+            self.percent = 0.80
+        }
+        .animation(.spring())
     }
+    
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
